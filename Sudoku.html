@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Sudoku Game</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            font-family:cursive;
+            margin: 0;
+            padding: 0;
+            background-color: #FF9505;
+        }
+
+        .container {
+            width: 95vw;
+            height: 90vh;
+            margin-top: 3.5vh;
+            background-color: yellow;
+            /* align-items: center; */
+            display: flex;
+            /*justify-content: center;*/
+            /* vertical-align: center; */
+            justify-content: space-around;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .title {
+            background-color: #353531;
+            margin: 10px;
+        }
+
+        .title h1 {
+            color: whitesmoke;
+            display: flex;
+            justify-content: center;
+
+            font-size: 270%;
+        }
+
+        .title sup {
+            font-size: 40%;
+        }
+
+        .grid-container {
+            margin: auto;
+            background-color: #000000;
+            width: 400px;
+            height: 400px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 5px;
+            padding: 5px;
+        }
+
+        .grid-item {
+            /* background-color: #016FB9; */
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            /* padding: auto; */
+            /* display: inline;
+            width: fit-content;
+            padding: 8px; */
+        }
+
+        .inner-grid-container {
+            background-color: #016FB9;
+            /* box-sizing: border-box;
+            width: auto;
+            height: inherit;
+            padding: auto; 
+            margin: auto;
+            padding: 5px; */
+            margin: auto;
+            /* background-color: #353531; */
+            width: 130px;
+            height: 130px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 1px;
+            /* padding: 1px; */
+        }
+        .inner-grid-container:hover{
+            background-color:#FF9505;
+        }
+
+        .inner-grid-item {
+            background-color: rgba(0, 255, 255,.2);
+            align-items: center;
+            display: flex;
+            /* height: 30px; */
+        }
+        .inner-grid-item:hover{
+            background-color: rgba(0, 255, 255,.7);
+        }
+        .inner-grid-item-text{
+            /* background-color: orange; */
+            /* margin: auto; */
+            margin: auto;
+            padding: auto;
+            width: fit-content;
+            font-size: x-large;
+            /* height: 40px; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>Play Sudoku Online<sup>Beta</sup></h1>
+        </div>
+        <div class="grid-container">
+            <div class="grid-item" id="item11">
+                <div class="inner-grid-container">
+                    <div class="inner-grid-item" id="item111">
+                        <div class="inner-grid-item-text">1</div>
+                    </div>
+                    <div class="inner-grid-item" id="item112">
+                        <div class="inner-grid-item-text">2</div>
+                    </div>
+                    <div class="inner-grid-item" id="item113">
+                        <div class="inner-grid-item-text">3</div>
+                    </div>
+                    <div class="inner-grid-item" id="item114">
+                        <div class="inner-grid-item-text">4</div>
+                    </div>
+                    <div class="inner-grid-item" id="item115">
+                        <div class="inner-grid-item-text">5</div>
+                    </div>
+                    <div class="inner-grid-item" id="item116">
+                        <div class="inner-grid-item-text">6</div>
+                    </div>
+                    <div class="inner-grid-item" id="item117">
+                        <div class="inner-grid-item-text">7</div>
+                    </div>
+                    <div class="inner-grid-item" id="item118">
+                        <div class="inner-grid-item-text">8</div>
+                    </div>
+                    <div class="inner-grid-item" id="item119">
+                        <div class="inner-grid-item-text">9</div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item" id="item12">
+                <div class="inner-grid-container">
+                    <div class="inner-grid-item" id="item121">
+                        <div class="inner-grid-item-text">1</div>
+                    </div>
+                    <div class="inner-grid-item" id="item122">
+                        <div class="inner-grid-item-text">2</div>
+                    </div>
+                    <div class="inner-grid-item" id="item123">
+                        <div class="inner-grid-item-text">3</div>
+                    </div>
+                    <div class="inner-grid-item" id="item124">
+                        <div class="inner-grid-item-text">4</div>
+                    </div>
+                    <div class="inner-grid-item" id="item125">
+                        <div class="inner-grid-item-text">5</div>
+                    </div>
+                    <div class="inner-grid-item" id="item126">
+                        <div class="inner-grid-item-text">6</div>
+                    </div>
+                    <div class="inner-grid-item" id="item127">
+                        <div class="inner-grid-item-text">7</div>
+                    </div>
+                    <div class="inner-grid-item" id="item128">
+                        <div class="inner-grid-item-text">8</div>
+                    </div>
+                    <div class="inner-grid-item" id="item129">
+                        <div class="inner-grid-item-text">9</div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item" id="item13">
+                <div class="inner-grid-container">
+                    <div class="inner-grid-item" id="item131">
+                        <div class="inner-grid-item-text">1</div>
+                    </div>
+                    <div class="inner-grid-item" id="item132">
+                        <div class="inner-grid-item-text">2</div>
+                    </div>
+                    <div class="inner-grid-item" id="item133">
+                        <div class="inner-grid-item-text">3</div>
+                    </div>
+                    <div class="inner-grid-item" id="item134">
+                        <div class="inner-grid-item-text">4</div>
+                    </div>
+                    <div class="inner-grid-item" id="item135">
+                        <div class="inner-grid-item-text">5</div>
+                    </div>
+                    <div class="inner-grid-item" id="item136">
+                        <div class="inner-grid-item-text">6</div>
+                    </div>
+                    <div class="inner-grid-item" id="item137">
+                        <div class="inner-grid-item-text">7</div>
+                    </div>
+                    <div class="inner-grid-item" id="item138">
+                        <div class="inner-grid-item-text">8</div>
+                    </div>
+                    <div class="inner-grid-item" id="item139">
+                        <div class="inner-grid-item-text">9</div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item" id="item11">
+                <div class="inner-grid-container">
+                    <div class="inner-grid-item" id="item211">
+                        <div class="inner-grid-item-text">1</div>
+                    </div>
+                    <div class="inner-grid-item" id="item212">
+                        <div class="inner-grid-item-text">2</div>
+                    </div>
+                    <div class="inner-grid-item" id="item213">
+                        <div class="inner-grid-item-text">3</div>
+                    </div>
+                    <div class="inner-grid-item" id="item214">
+                        <div class="inner-grid-item-text">4</div>
+                    </div>
+                    <div class="inner-grid-item" id="item215">
+                        <div class="inner-grid-item-text">5</div>
+                    </div>
+                    <div class="inner-grid-item" id="item216">
+                        <div class="inner-grid-item-text">6</div>
+                    </div>
+                    <div class="inner-grid-item" id="item217">
+                        <div class="inner-grid-item-text">7</div>
+                    </div>
+                    <div class="inner-grid-item" id="item218">
+                        <div class="inner-grid-item-text">8</div>
+                    </div>
+                    <div class="inner-grid-item" id="item219">
+                        <div class="inner-grid-item-text">9</div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item" id="item12">
+                <div class="inner-grid-container">
+                    <div class="inner-grid-item" id="item221">
+                        <div class="inner-grid-item-text">1</div>
+                    </div>
+                    <div class="inner-grid-item" id="item222">
+                        <div class="inner-grid-item-text">2</div>
+                    </div>
+                    <div class="inner-grid-item" id="item223">
+                        <div class="inner-grid-item-text">3</div>
+                    </div>
+                    <div class="inner-grid-item" id="item224">
+                        <div class="inner-grid-item-text">4</div>
+                    </div>
+                    <div class="inner-grid-item" id="item225">
+                        <div class="inner-grid-item-text">5</div>
+                    </div>
+                    <div class="inner-grid-item" id="item226">
+                        <div class="inner-grid-item-text">6</div>
+                    </div>
+                    <div class="inner-grid-item" id="item227">
+                        <div class="inner-grid-item-text">7</div>
+                    </div>
+                    <div class="inner-grid-item" id="item228">
+                        <div class="inner-grid-item-text">8</div>
+                    </div>
+                    <div class="inner-grid-item" id="item229">
+                        <div class="inner-grid-item-text">9</div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item" id="item13">
+                <div class="inner-grid-container">
+                    <div class="inner-grid-item" id="item231">
+                        <div class="inner-grid-item-text">1</div>
+                    </div>
+                    <div class="inner-grid-item" id="item232">
+                        <div class="inner-grid-item-text">2</div>
+                    </div>
+                    <div class="inner-grid-item" id="item233">
+                        <div class="inner-grid-item-text">3</div>
+                    </div>
+                    <div class="inner-grid-item" id="item234">
+                        <div class="inner-grid-item-text">4</div>
+                    </div>
+                    <div class="inner-grid-item" id="item235">
+                        <div class="inner-grid-item-text">5</div>
+                    </div>
+                    <div class="inner-grid-item" id="item236">
+                        <div class="inner-grid-item-text">6</div>
+                    </div>
+                    <div class="inner-grid-item" id="item237">
+                        <div class="inner-grid-item-text">7</div>
+                    </div>
+                    <div class="inner-grid-item" id="item238">
+                        <div class="inner-grid-item-text">8</div>
+                    </div>
+                    <div class="inner-grid-item" id="item239">
+                        <div class="inner-grid-item-text">9</div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item" id="item11">
+                <div class="inner-grid-container">
+                    <div class="inner-grid-item" id="item311">
+                        <div class="inner-grid-item-text">1</div>
+                    </div>
+                    <div class="inner-grid-item" id="item312">
+                        <div class="inner-grid-item-text">2</div>
+                    </div>
+                    <div class="inner-grid-item" id="item313">
+                        <div class="inner-grid-item-text">3</div>
+                    </div>
+                    <div class="inner-grid-item" id="item314">
+                        <div class="inner-grid-item-text">4</div>
+                    </div>
+                    <div class="inner-grid-item" id="item315">
+                        <div class="inner-grid-item-text">5</div>
+                    </div>
+                    <div class="inner-grid-item" id="item316">
+                        <div class="inner-grid-item-text">6</div>
+                    </div>
+                    <div class="inner-grid-item" id="item317">
+                        <div class="inner-grid-item-text">7</div>
+                    </div>
+                    <div class="inner-grid-item" id="item318">
+                        <div class="inner-grid-item-text">8</div>
+                    </div>
+                    <div class="inner-grid-item" id="item319">
+                        <div class="inner-grid-item-text">9</div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item" id="item12">
+                <div class="inner-grid-container">
+                    <div class="inner-grid-item" id="item321">
+                        <div class="inner-grid-item-text">1</div>
+                    </div>
+                    <div class="inner-grid-item" id="item322">
+                        <div class="inner-grid-item-text">2</div>
+                    </div>
+                    <div class="inner-grid-item" id="item323">
+                        <div class="inner-grid-item-text">3</div>
+                    </div>
+                    <div class="inner-grid-item" id="item324">
+                        <div class="inner-grid-item-text">4</div>
+                    </div>
+                    <div class="inner-grid-item" id="item325">
+                        <div class="inner-grid-item-text">5</div>
+                    </div>
+                    <div class="inner-grid-item" id="item326">
+                        <div class="inner-grid-item-text">6</div>
+                    </div>
+                    <div class="inner-grid-item" id="item327">
+                        <div class="inner-grid-item-text">7</div>
+                    </div>
+                    <div class="inner-grid-item" id="item328">
+                        <div class="inner-grid-item-text">8</div>
+                    </div>
+                    <div class="inner-grid-item" id="item329">
+                        <div class="inner-grid-item-text">9</div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item" id="item13">
+                <div class="inner-grid-container">
+                    <div class="inner-grid-item" id="item331">
+                        <div class="inner-grid-item-text">1</div>
+                    </div>
+                    <div class="inner-grid-item" id="item332">
+                        <div class="inner-grid-item-text">2</div>
+                    </div>
+                    <div class="inner-grid-item" id="item333">
+                        <div class="inner-grid-item-text">3</div>
+                    </div>
+                    <div class="inner-grid-item" id="item334">
+                        <div class="inner-grid-item-text">4</div>
+                    </div>
+                    <div class="inner-grid-item" id="item335">
+                        <div class="inner-grid-item-text">5</div>
+                    </div>
+                    <div class="inner-grid-item" id="item336">
+                        <div class="inner-grid-item-text">6</div>
+                    </div>
+                    <div class="inner-grid-item" id="item337">
+                        <div class="inner-grid-item-text">7</div>
+                    </div>
+                    <div class="inner-grid-item" id="item338">
+                        <div class="inner-grid-item-text">8</div>
+                    </div>
+                    <div class="inner-grid-item" id="item339">
+                        <div class="inner-grid-item-text">9</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
