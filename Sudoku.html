@@ -1,3 +1,12 @@
+<!-- 
+    Project: One Page Code - Online Sudoku Game
+    Author: Shyam
+    Started On: 10th January 2023
+
+    TODO Responsive UI: Set min width, height; css for smaller screen (smartphone)
+    TODO: Add Functionality
+    TODO: Highlight respective complete row as well as complete column when hovering over a inner-grid-item
+ -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,11 +15,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Sudoku Game</title>
-    <style>
+    <style media="screen and (min-device-width: 870px">
+        @keyframes slide {
+            from {
+                display: none;
+            }
+
+            to {
+                display: block;
+            }
+        }
+
         body {
             display: flex;
             justify-content: center;
-            font-family:cursive;
+            font-family: cursive;
             margin: 0;
             padding: 0;
             background-color: #FF9505;
@@ -47,8 +66,13 @@
             font-size: 40%;
         }
 
-        .grid-container {
+        .content-pane {
             margin: auto;
+            display: flex;
+
+        }
+
+        .grid-container {
             background-color: #000000;
             width: 400px;
             height: 400px;
@@ -57,6 +81,7 @@
             grid-template-rows: repeat(3, 1fr);
             gap: 5px;
             padding: 5px;
+            margin-right: 0;
         }
 
         .grid-item {
@@ -88,20 +113,24 @@
             gap: 1px;
             /* padding: 1px; */
         }
-        .inner-grid-container:hover{
-            background-color:#FF9505;
+
+        .inner-grid-container:hover {
+            background-color: #FF9505;
         }
 
         .inner-grid-item {
-            background-color: rgba(0, 255, 255,.2);
+            background-color: rgba(0, 255, 255, .2);
             align-items: center;
             display: flex;
             /* height: 30px; */
         }
-        .inner-grid-item:hover{
-            background-color: rgba(0, 255, 255,.7);
+
+        .inner-grid-item:hover {
+            background-color: rgba(0, 255, 255, .7);
+            cursor: pointer;
         }
-        .inner-grid-item-text{
+
+        .inner-grid-item-text {
             /* background-color: orange; */
             /* margin: auto; */
             margin: auto;
@@ -109,6 +138,52 @@
             width: fit-content;
             font-size: x-large;
             /* height: 40px; */
+        }
+
+        .menu-container {
+            /* background-color: gray; */
+            display: flex;
+            align-items: flex-end;
+            /* justify-content: center; */
+            width: 400px;
+            height: 400px;
+            margin-left: 0;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            background-color: rgba(255, 149, 5, .4);
+            margin: 20px;
+            margin-left: 0;
+            padding: 20px;
+            padding-left: 15px;
+            border-radius: 0px 30px 30px 0px;
+            border: 5px solid rgb(37, 37, 37);
+            border-left: none;
+
+
+            animation-name: slide;
+            animation-duration: 5s;
+
+        }
+
+        .menu ul li {
+            background-color: #016FB9;
+            color: black;
+            border: 3px solid black;
+            margin: 20px;
+            padding: 2px 0px;
+            width: 15vw;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: 600;
+            border-radius: 35px;
+            cursor: pointer;
+        }
+
+        .menu ul li:hover {
+            background-color: #FF9505;
+            /* color:black; */
         }
     </style>
 </head>
@@ -118,288 +193,418 @@
         <div class="title">
             <h1>Play Sudoku Online<sup>Beta</sup></h1>
         </div>
-        <div class="grid-container">
-            <div class="grid-item" id="item11">
-                <div class="inner-grid-container">
-                    <div class="inner-grid-item" id="item111">
-                        <div class="inner-grid-item-text">1</div>
-                    </div>
-                    <div class="inner-grid-item" id="item112">
-                        <div class="inner-grid-item-text">2</div>
-                    </div>
-                    <div class="inner-grid-item" id="item113">
-                        <div class="inner-grid-item-text">3</div>
-                    </div>
-                    <div class="inner-grid-item" id="item114">
-                        <div class="inner-grid-item-text">4</div>
-                    </div>
-                    <div class="inner-grid-item" id="item115">
-                        <div class="inner-grid-item-text">5</div>
-                    </div>
-                    <div class="inner-grid-item" id="item116">
-                        <div class="inner-grid-item-text">6</div>
-                    </div>
-                    <div class="inner-grid-item" id="item117">
-                        <div class="inner-grid-item-text">7</div>
-                    </div>
-                    <div class="inner-grid-item" id="item118">
-                        <div class="inner-grid-item-text">8</div>
-                    </div>
-                    <div class="inner-grid-item" id="item119">
-                        <div class="inner-grid-item-text">9</div>
-                    </div>
-                </div>
-            </div>
-            <div class="grid-item" id="item12">
-                <div class="inner-grid-container">
-                    <div class="inner-grid-item" id="item121">
-                        <div class="inner-grid-item-text">1</div>
-                    </div>
-                    <div class="inner-grid-item" id="item122">
-                        <div class="inner-grid-item-text">2</div>
-                    </div>
-                    <div class="inner-grid-item" id="item123">
-                        <div class="inner-grid-item-text">3</div>
-                    </div>
-                    <div class="inner-grid-item" id="item124">
-                        <div class="inner-grid-item-text">4</div>
-                    </div>
-                    <div class="inner-grid-item" id="item125">
-                        <div class="inner-grid-item-text">5</div>
-                    </div>
-                    <div class="inner-grid-item" id="item126">
-                        <div class="inner-grid-item-text">6</div>
-                    </div>
-                    <div class="inner-grid-item" id="item127">
-                        <div class="inner-grid-item-text">7</div>
-                    </div>
-                    <div class="inner-grid-item" id="item128">
-                        <div class="inner-grid-item-text">8</div>
-                    </div>
-                    <div class="inner-grid-item" id="item129">
-                        <div class="inner-grid-item-text">9</div>
+        <div class="content-pane">
+            <div class="grid-container">
+                <div class="grid-item" id="item11">
+                    <div class="inner-grid-container">
+                        <div class="inner-grid-item" id="cell111">
+                            <div class="inner-grid-item-text" id="item111">1</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell112">
+                            <div class="inner-grid-item-text" id="item112">2</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell113">
+                            <div class="inner-grid-item-text" id="item113">3</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell114">
+                            <div class="inner-grid-item-text" id="item114">4</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell115">
+                            <div class="inner-grid-item-text" id="item115">5</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell116">
+                            <div class="inner-grid-item-text" id="item116">6</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell117">
+                            <div class="inner-grid-item-text" id="item117">7</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell118">
+                            <div class="inner-grid-item-text" id="item118">8</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell119">
+                            <div class="inner-grid-item-text" id="item119">9</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="grid-item" id="item13">
-                <div class="inner-grid-container">
-                    <div class="inner-grid-item" id="item131">
-                        <div class="inner-grid-item-text">1</div>
-                    </div>
-                    <div class="inner-grid-item" id="item132">
-                        <div class="inner-grid-item-text">2</div>
-                    </div>
-                    <div class="inner-grid-item" id="item133">
-                        <div class="inner-grid-item-text">3</div>
-                    </div>
-                    <div class="inner-grid-item" id="item134">
-                        <div class="inner-grid-item-text">4</div>
-                    </div>
-                    <div class="inner-grid-item" id="item135">
-                        <div class="inner-grid-item-text">5</div>
-                    </div>
-                    <div class="inner-grid-item" id="item136">
-                        <div class="inner-grid-item-text">6</div>
-                    </div>
-                    <div class="inner-grid-item" id="item137">
-                        <div class="inner-grid-item-text">7</div>
-                    </div>
-                    <div class="inner-grid-item" id="item138">
-                        <div class="inner-grid-item-text">8</div>
-                    </div>
-                    <div class="inner-grid-item" id="item139">
-                        <div class="inner-grid-item-text">9</div>
-                    </div>
-                </div>
-            </div>
-            <div class="grid-item" id="item11">
-                <div class="inner-grid-container">
-                    <div class="inner-grid-item" id="item211">
-                        <div class="inner-grid-item-text">1</div>
-                    </div>
-                    <div class="inner-grid-item" id="item212">
-                        <div class="inner-grid-item-text">2</div>
-                    </div>
-                    <div class="inner-grid-item" id="item213">
-                        <div class="inner-grid-item-text">3</div>
-                    </div>
-                    <div class="inner-grid-item" id="item214">
-                        <div class="inner-grid-item-text">4</div>
-                    </div>
-                    <div class="inner-grid-item" id="item215">
-                        <div class="inner-grid-item-text">5</div>
-                    </div>
-                    <div class="inner-grid-item" id="item216">
-                        <div class="inner-grid-item-text">6</div>
-                    </div>
-                    <div class="inner-grid-item" id="item217">
-                        <div class="inner-grid-item-text">7</div>
-                    </div>
-                    <div class="inner-grid-item" id="item218">
-                        <div class="inner-grid-item-text">8</div>
-                    </div>
-                    <div class="inner-grid-item" id="item219">
-                        <div class="inner-grid-item-text">9</div>
+                <div class="grid-item" id="item12">
+                    <div class="inner-grid-container">
+                        <div class="inner-grid-item" id="cell121">
+                            <div class="inner-grid-item-text" id="item121">1</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell122">
+                            <div class="inner-grid-item-text" id="item122">2</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell123">
+                            <div class="inner-grid-item-text" id="item123">3</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell124">
+                            <div class="inner-grid-item-text" id="item124">4</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell125">
+                            <div class="inner-grid-item-text" id="item125">5</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell126">
+                            <div class="inner-grid-item-text" id="item126">6</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell127">
+                            <div class="inner-grid-item-text" id="item127">7</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell128">
+                            <div class="inner-grid-item-text" id="item128">8</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell129">
+                            <div class="inner-grid-item-text" id="item129">9</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="grid-item" id="item12">
-                <div class="inner-grid-container">
-                    <div class="inner-grid-item" id="item221">
-                        <div class="inner-grid-item-text">1</div>
-                    </div>
-                    <div class="inner-grid-item" id="item222">
-                        <div class="inner-grid-item-text">2</div>
-                    </div>
-                    <div class="inner-grid-item" id="item223">
-                        <div class="inner-grid-item-text">3</div>
-                    </div>
-                    <div class="inner-grid-item" id="item224">
-                        <div class="inner-grid-item-text">4</div>
-                    </div>
-                    <div class="inner-grid-item" id="item225">
-                        <div class="inner-grid-item-text">5</div>
-                    </div>
-                    <div class="inner-grid-item" id="item226">
-                        <div class="inner-grid-item-text">6</div>
-                    </div>
-                    <div class="inner-grid-item" id="item227">
-                        <div class="inner-grid-item-text">7</div>
-                    </div>
-                    <div class="inner-grid-item" id="item228">
-                        <div class="inner-grid-item-text">8</div>
-                    </div>
-                    <div class="inner-grid-item" id="item229">
-                        <div class="inner-grid-item-text">9</div>
-                    </div>
-                </div>
-            </div>
-            <div class="grid-item" id="item13">
-                <div class="inner-grid-container">
-                    <div class="inner-grid-item" id="item231">
-                        <div class="inner-grid-item-text">1</div>
-                    </div>
-                    <div class="inner-grid-item" id="item232">
-                        <div class="inner-grid-item-text">2</div>
-                    </div>
-                    <div class="inner-grid-item" id="item233">
-                        <div class="inner-grid-item-text">3</div>
-                    </div>
-                    <div class="inner-grid-item" id="item234">
-                        <div class="inner-grid-item-text">4</div>
-                    </div>
-                    <div class="inner-grid-item" id="item235">
-                        <div class="inner-grid-item-text">5</div>
-                    </div>
-                    <div class="inner-grid-item" id="item236">
-                        <div class="inner-grid-item-text">6</div>
-                    </div>
-                    <div class="inner-grid-item" id="item237">
-                        <div class="inner-grid-item-text">7</div>
-                    </div>
-                    <div class="inner-grid-item" id="item238">
-                        <div class="inner-grid-item-text">8</div>
-                    </div>
-                    <div class="inner-grid-item" id="item239">
-                        <div class="inner-grid-item-text">9</div>
+                <div class="grid-item" id="item13">
+                    <div class="inner-grid-container">
+                        <div class="inner-grid-item" id="cell131">
+                            <div class="inner-grid-item-text" id="item131">1</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell132">
+                            <div class="inner-grid-item-text" id="item132">2</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell133">
+                            <div class="inner-grid-item-text" id="item133">3</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell134">
+                            <div class="inner-grid-item-text" id="item134">4</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell135">
+                            <div class="inner-grid-item-text" id="item135">5</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell136">
+                            <div class="inner-grid-item-text" id="item136">6</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell137">
+                            <div class="inner-grid-item-text" id="item137">7</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell138">
+                            <div class="inner-grid-item-text" id="item138">8</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell139">
+                            <div class="inner-grid-item-text" id="item139">9</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="grid-item" id="item11">
-                <div class="inner-grid-container">
-                    <div class="inner-grid-item" id="item311">
-                        <div class="inner-grid-item-text">1</div>
-                    </div>
-                    <div class="inner-grid-item" id="item312">
-                        <div class="inner-grid-item-text">2</div>
-                    </div>
-                    <div class="inner-grid-item" id="item313">
-                        <div class="inner-grid-item-text">3</div>
-                    </div>
-                    <div class="inner-grid-item" id="item314">
-                        <div class="inner-grid-item-text">4</div>
-                    </div>
-                    <div class="inner-grid-item" id="item315">
-                        <div class="inner-grid-item-text">5</div>
-                    </div>
-                    <div class="inner-grid-item" id="item316">
-                        <div class="inner-grid-item-text">6</div>
-                    </div>
-                    <div class="inner-grid-item" id="item317">
-                        <div class="inner-grid-item-text">7</div>
-                    </div>
-                    <div class="inner-grid-item" id="item318">
-                        <div class="inner-grid-item-text">8</div>
-                    </div>
-                    <div class="inner-grid-item" id="item319">
-                        <div class="inner-grid-item-text">9</div>
-                    </div>
-                </div>
-            </div>
-            <div class="grid-item" id="item12">
-                <div class="inner-grid-container">
-                    <div class="inner-grid-item" id="item321">
-                        <div class="inner-grid-item-text">1</div>
-                    </div>
-                    <div class="inner-grid-item" id="item322">
-                        <div class="inner-grid-item-text">2</div>
-                    </div>
-                    <div class="inner-grid-item" id="item323">
-                        <div class="inner-grid-item-text">3</div>
-                    </div>
-                    <div class="inner-grid-item" id="item324">
-                        <div class="inner-grid-item-text">4</div>
-                    </div>
-                    <div class="inner-grid-item" id="item325">
-                        <div class="inner-grid-item-text">5</div>
-                    </div>
-                    <div class="inner-grid-item" id="item326">
-                        <div class="inner-grid-item-text">6</div>
-                    </div>
-                    <div class="inner-grid-item" id="item327">
-                        <div class="inner-grid-item-text">7</div>
-                    </div>
-                    <div class="inner-grid-item" id="item328">
-                        <div class="inner-grid-item-text">8</div>
-                    </div>
-                    <div class="inner-grid-item" id="item329">
-                        <div class="inner-grid-item-text">9</div>
+                <div class="grid-item" id="item11">
+                    <div class="inner-grid-container">
+                        <div class="inner-grid-item" id="cell211">
+                            <div class="inner-grid-item-text" id="item211">1</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell212">
+                            <div class="inner-grid-item-text" id="item212">2</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell213">
+                            <div class="inner-grid-item-text" id="item213">3</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell214">
+                            <div class="inner-grid-item-text" id="item214">4</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell215">
+                            <div class="inner-grid-item-text" id="item215">5</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell216">
+                            <div class="inner-grid-item-text" id="item216">6</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell217">
+                            <div class="inner-grid-item-text" id="item217">7</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell218">
+                            <div class="inner-grid-item-text" id="item218">8</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell219">
+                            <div class="inner-grid-item-text" id="item219">9</div>
+                        </div>
                     </div>
                 </div>
+                <div class="grid-item" id="item12">
+                    <div class="inner-grid-container">
+                        <div class="inner-grid-item" id="cell221">
+                            <div class="inner-grid-item-text" id="item221">1</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell222">
+                            <div class="inner-grid-item-text" id="item222">2</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell223">
+                            <div class="inner-grid-item-text" id="item223">3</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell224">
+                            <div class="inner-grid-item-text" id="item224">4</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell225">
+                            <div class="inner-grid-item-text" id="item225">5</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell226">
+                            <div class="inner-grid-item-text" id="item226">6</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell227">
+                            <div class="inner-grid-item-text" id="item227">7</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell228">
+                            <div class="inner-grid-item-text" id="item228">8</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell229">
+                            <div class="inner-grid-item-text" id="item229">9</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item" id="item13">
+                    <div class="inner-grid-container">
+                        <div class="inner-grid-item" id="cell231">
+                            <div class="inner-grid-item-text" id="item231">1</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell232">
+                            <div class="inner-grid-item-text" id="item232">2</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell233">
+                            <div class="inner-grid-item-text" id="item233">3</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell234">
+                            <div class="inner-grid-item-text" id="item234">4</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell235">
+                            <div class="inner-grid-item-text" id="item235">5</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell236">
+                            <div class="inner-grid-item-text" id="item236">6</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell237">
+                            <div class="inner-grid-item-text" id="item237">7</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell238">
+                            <div class="inner-grid-item-text" id="item238">8</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell239">
+                            <div class="inner-grid-item-text" id="item239">9</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item" id="item11">
+                    <div class="inner-grid-container">
+                        <div class="inner-grid-item" id="cell311">
+                            <div class="inner-grid-item-text" id="item311">1</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell312">
+                            <div class="inner-grid-item-text" id="item312">2</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell313">
+                            <div class="inner-grid-item-text" id="item313">3</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell314">
+                            <div class="inner-grid-item-text" id="item314">4</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell315">
+                            <div class="inner-grid-item-text" id="item315">5</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell316">
+                            <div class="inner-grid-item-text" id="item316">6</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell317">
+                            <div class="inner-grid-item-text" id="item317">7</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell318">
+                            <div class="inner-grid-item-text" id="item318">8</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell319">
+                            <div class="inner-grid-item-text" id="item319">9</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item" id="item12">
+                    <div class="inner-grid-container">
+                        <div class="inner-grid-item" id="cell321">
+                            <div class="inner-grid-item-text" id="item321">1</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell322">
+                            <div class="inner-grid-item-text" id="item322">2</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell323">
+                            <div class="inner-grid-item-text" id="item323">3</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell324">
+                            <div class="inner-grid-item-text" id="item324">4</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell325">
+                            <div class="inner-grid-item-text" id="item325">5</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell326">
+                            <div class="inner-grid-item-text" id="item326">6</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell327">
+                            <div class="inner-grid-item-text" id="item327">7</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell328">
+                            <div class="inner-grid-item-text" id="item328">8</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell329">
+                            <div class="inner-grid-item-text" id="item329">9</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item" id="item13">
+                    <div class="inner-grid-container">
+                        <div class="inner-grid-item" id="cell331">
+                            <div class="inner-grid-item-text" id="item331">1</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell332">
+                            <div class="inner-grid-item-text" id="item332">2</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell333">
+                            <div class="inner-grid-item-text" id="item333">3</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell334">
+                            <div class="inner-grid-item-text" id="item334">4</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell335">
+                            <div class="inner-grid-item-text" id="item335">5</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell336">
+                            <div class="inner-grid-item-text" id="item336">6</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell337">
+                            <div class="inner-grid-item-text" id="item337">7</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell338">
+                            <div class="inner-grid-item-text" id="item338">8</div>
+                        </div>
+                        <div class="inner-grid-item" id="cell339">
+                            <div class="inner-grid-item-text" id="item339">9</div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <div class="grid-item" id="item13">
-                <div class="inner-grid-container">
-                    <div class="inner-grid-item" id="item331">
-                        <div class="inner-grid-item-text">1</div>
-                    </div>
-                    <div class="inner-grid-item" id="item332">
-                        <div class="inner-grid-item-text">2</div>
-                    </div>
-                    <div class="inner-grid-item" id="item333">
-                        <div class="inner-grid-item-text">3</div>
-                    </div>
-                    <div class="inner-grid-item" id="item334">
-                        <div class="inner-grid-item-text">4</div>
-                    </div>
-                    <div class="inner-grid-item" id="item335">
-                        <div class="inner-grid-item-text">5</div>
-                    </div>
-                    <div class="inner-grid-item" id="item336">
-                        <div class="inner-grid-item-text">6</div>
-                    </div>
-                    <div class="inner-grid-item" id="item337">
-                        <div class="inner-grid-item-text">7</div>
-                    </div>
-                    <div class="inner-grid-item" id="item338">
-                        <div class="inner-grid-item-text">8</div>
-                    </div>
-                    <div class="inner-grid-item" id="item339">
-                        <div class="inner-grid-item-text">9</div>
-                    </div>
+            <div class="menu-container">
+                <div class="menu">
+                    <ul>
+                        <li onclick="newGame()">New Game</li>
+                        <li>Restart</li>
+                        <li>Get A Hint</li>
+                        <li>Settings</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        var arr = new Array(9);                   //to store the array of game
+        var isConst = new Array(9);               //to store whether an inner-grid-item is constant(immutable)
+        for (var i = 0; i < arr.length; i++) {
+            arr[i] = new Array(9);
+            isConst[i] = new Array(9);
+            for (var j = 0; j < arr.length; j++) {
+                arr[i][j] = 0;
+                arr[i][j] = false;
+            }
+        }
+
+        //SETTING UP ARRAY FOR NEW GAME
+        arr[0][1] = 5;
+        arr[0][3] = 9;
+        arr[0][4] = 3;
+        arr[0][7] = 4;
+        arr[1][0] = 7;
+        arr[1][1] = 4;
+        arr[1][4] = 1;
+        arr[1][5] = 6;
+        arr[2][0] = 6;
+        arr[2][6] = 8;
+        arr[3][0] = 3;
+        arr[3][2] = 1;
+        arr[3][6] = 7;
+        arr[4][0] = 4;
+        arr[4][2] = 5;
+        arr[4][3] = 3;
+        arr[4][4] = 2;
+        arr[4][5] = 7;
+        arr[4][7] = 1;
+        arr[4][8] = 6;
+        arr[5][0] = 2;
+        arr[5][2] = 9;
+        arr[5][4] = 6;
+        arr[5][5] = 5;
+        arr[5][6] = 3;
+        arr[5][7] = 8;
+        arr[5][8] = 4;
+        arr[6][1] = 3;
+        arr[6][5] = 9;
+        arr[7][3] = 6;
+        arr[7][4] = 7;
+        arr[7][6] = 5;
+        arr[7][8] = 8;
+        arr[8][0] = 5;
+        arr[8][7] = 6;
+        arr[8][8] = 9;
+
+        //INITIALISING ISCONST ARRAY FOR CONST ELEMENTS
+        isConst[0][1] = true;
+        isConst[0][3] = true;
+        isConst[0][4] = true;
+        isConst[0][7] = true;
+        isConst[1][0] = true;
+        isConst[1][1] = true;
+        isConst[1][4] = true;
+        isConst[1][5] = true;
+        isConst[2][0] = true;
+        isConst[2][6] = true;
+        isConst[3][0] = true;
+        isConst[3][2] = true;
+        isConst[3][6] = true;
+        isConst[4][0] = true;
+        isConst[4][2] = true;
+        isConst[4][3] = true;
+        isConst[4][4] = true;
+        isConst[4][5] = true;
+        isConst[4][7] = true;
+        isConst[4][8] = true;
+        isConst[5][0] = true;
+        isConst[5][2] = true;
+        isConst[5][4] = true;
+        isConst[5][5] = true;
+        isConst[5][6] = true;
+        isConst[5][7] = true;
+        isConst[5][8] = true;
+        isConst[6][1] = true;
+        isConst[6][5] = true;
+        isConst[7][3] = true;
+        isConst[7][4] = true;
+        isConst[7][6] = true;
+        isConst[7][8] = true;
+        isConst[8][0] = true;
+        isConst[8][7] = true;
+        isConst[8][8] = true;
+
+        function newGame() {
+            for (var i = 0; i < arr.length; i++) {
+                for (var j = 0; j < arr[0].length; j++) {
+                    var p = Math.floor(i / 3) + 1;
+                    var q = Math.floor(j / 3) + 1;
+                    var r = 3 * (i % 3) + 1 + (j % 3);
+                    console.log('item' + p + q + r);
+                    var cellText = document.getElementById('item' + p + q + r);
+                    var cell = document.getElementById('cell' + p + q + r);
+
+                    if (arr[i][j] != 0 & isConst[i][j]) {
+                        cellText.textContent = arr[i][j];
+                        cell.style.backgroundColor='rgba(0,0,0,.05)'
+                    }
+                    else if (arr[i][j] == 0 & !isConst[i][j]) {
+                        cellText.textContent = '';
+                    }
+                    else {
+                        cellText.textContent='-1';
+                        cell.style.backgroundColor='red';
+                    }
+                }
+            }
+        }
+
+
+    </script>
+
 </body>
 
 </html>
